@@ -281,18 +281,7 @@
 
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Session timer logic
-  const TIMEOUT_DURATION = 60000;
-  function checkSession() {
-      const lastActive = localStorage.getItem('lastActiveTime');
-      if (lastActive && (Date.now() - parseInt(lastActive) >= TIMEOUT_DURATION)) {
-          localStorage.removeItem('lastActiveTime');
-          window.location.href = 'pin.html';
-      }
-  }
-  function resetTimer() { localStorage.setItem('lastActiveTime', Date.now().toString()); }
-  ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(e => document.addEventListener(e, resetTimer));
-  checkSession(); setInterval(checkSession, 2000);
+
 </script>
 </body>
 </html>
